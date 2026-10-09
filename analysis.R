@@ -194,3 +194,24 @@ titanic <- cbind(titanic, Embarked_encoded)
 # View the result
 head(titanic[, c("Embarked", "EmbarkedC", "EmbarkedQ", "EmbarkedS")])
 str(titanic)
+# -----------------------------------------
+# Exploratory Data Analysis (EDA)
+# -----------------------------------------
+
+# Structure of the cleaned dataset
+str(titanic)
+
+# Summary statistics
+summary(titanic)
+# Descriptive statistics for Age
+mean(titanic$Age)
+median(titanic$Age)
+sd(titanic$Age)
+min(titanic$Age)
+max(titanic$Age)
+# Descriptive statistics for Fare
+mean(titanic$Fare)
+median(titanic$Fare)
+sd(titanic$Fare)
+min(titanic$Fare)
+max(titanic$Fare)
