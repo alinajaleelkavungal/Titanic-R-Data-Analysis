@@ -215,3 +215,91 @@ median(titanic$Fare)
 sd(titanic$Fare)
 min(titanic$Fare)
 max(titanic$Fare)
+# -----------------------------------------
+# EDA Visualizations
+# -----------------------------------------
+
+# Histogram of Age
+hist(titanic$Age,
+     main = "Distribution of Passenger Age",
+     xlab = "Age",
+     ylab = "Number of Passengers",
+     breaks = 15)
+# Histogram of Fare
+hist(titanic$Fare,
+     main = "Distribution of Passenger Fare",
+     xlab = "Fare",
+     ylab = "Number of Passengers",
+     breaks = 20)
+# Bar chart of passenger sex
+barplot(table(titanic$Sex),
+        main = "Passenger Distribution by Sex",
+        xlab = "Sex",
+        ylab = "Number of Passengers")
+# Bar chart of passenger class
+barplot(table(titanic$Pclass),
+        main = "Passenger Distribution by Class",
+        xlab = "Passenger Class",
+        ylab = "Number of Passengers")
+# Bar chart of embarkation port
+barplot(table(titanic$Embarked),
+        main = "Passenger Distribution by Embarkation Port",
+        xlab = "Port of Embarkation",
+        ylab = "Number of Passengers")
+# -----------------------------------------
+# Correlation Analysis
+# -----------------------------------------
+
+# Select numerical variables for correlation
+numeric_data <- titanic[, c("Pclass", "Age", "SibSp", "Parch", "Fare")]
+
+# Calculate correlation matrix
+correlation_matrix <- cor(numeric_data)
+
+# Display correlation matrix
+round(correlation_matrix, 2)
+# Visualize the correlation matrix
+heatmap(correlation_matrix,
+        main = "Correlation Matrix of Numerical Variables",
+        symm = TRUE)
+# -----------------------------------------
+# Initial Insights
+# -----------------------------------------
+
+# Passenger class distribution
+table(titanic$Pclass)
+
+# Sex distribution
+table(titanic$Sex)
+
+# Embarkation distribution
+table(titanic$Embarked)
+
+# Average age by passenger class
+aggregate(Age ~ Pclass, data = titanic, mean)
+
+# Average fare by passenger class
+aggregate(Fare ~ Pclass, data = titanic, mean)
+
+# Average fare by sex
+aggregate(Fare ~ Sex, data = titanic, mean)
+
+# Average age by sex
+aggregate(Age ~ Sex, data = titanic, mean)
+table(titanic$Pclass)
+table(titanic$Sex)
+table(titanic$Embarked)
+
+aggregate(Age ~ Pclass, data = titanic, mean)
+aggregate(Fare ~ Pclass, data = titanic, mean)
+aggregate(Fare ~ Sex, data = titanic, mean)
+aggregate(Age ~ Sex, data = titanic, mean)
+# -----------------------------------------
+# Final Dataset Verification
+# -----------------------------------------
+
+dim(titanic)
+
+str(titanic)
+
+colSums(is.na(titanic))
