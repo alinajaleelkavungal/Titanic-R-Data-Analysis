@@ -303,3 +303,5 @@ dim(titanic)
 str(titanic)
 
 colSums(is.na(titanic))
+dim(titanic)
+colSums(is.na(titanic))
